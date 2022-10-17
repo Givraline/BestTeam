@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Mouvement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private PlayerInputActions controler;
+    [SerializeField] private PlayerInputAction playerControler;
     [SerializeField] private InputAction move;
 
     private Vector2 mouvement;
@@ -16,11 +16,11 @@ public class Mouvement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        controler = new PlayerInputActions();
+        playerControler = new PlayerInputAction();
     }
     private void OnEnable()
     {
-        move = controler.Player.Move;
+        move = playerControler.Player.Move;
         move.Enable();
     }
 
@@ -31,7 +31,7 @@ public class Mouvement : MonoBehaviour
 
     private void Update()
     {
-        mouvement = move.ReadValue<Vector2>();
+        mouvement = move.ReadValue<Vector2>().normalized;
     }
 
     private void FixedUpdate()

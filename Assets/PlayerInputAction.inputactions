@@ -1,14 +1,14 @@
 {
-    "name": "Player",
+    "name": "PlayerInputAction",
     "maps": [
         {
             "name": "Player",
-            "id": "945328c2-fb6b-437a-8dd0-0cb98110283a",
+            "id": "533b79b2-83b5-456e-8c92-39ede8738e58",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "1312264e-e6bc-48e0-bdb9-24dd8dd99abe",
+                    "id": "185cda24-ea5c-4d4b-b3e9-8055b9646d5f",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "Look",
                     "type": "Value",
-                    "id": "db84153c-bcfa-475a-b020-9897b0352b31",
+                    "id": "7ac6e291-9847-44f0-8e16-f00a1e365583",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -26,7 +26,7 @@
                 {
                     "name": "Fire",
                     "type": "Button",
-                    "id": "b0cf2081-efcd-460c-b660-ecdbb608ae35",
+                    "id": "e1ec3419-822f-45d8-bb1a-c2aef3f2b6f5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -258,12 +258,12 @@
         },
         {
             "name": "UI",
-            "id": "f639fbc5-a4f2-4cdc-9ad2-fe8c20674d0b",
+            "id": "697c870e-172b-4587-996a-2b66c161e52e",
             "actions": [
                 {
                     "name": "Navigate",
                     "type": "PassThrough",
-                    "id": "6e631d32-377e-46c6-905b-98c7d4ad5dc6",
+                    "id": "ad18d1f8-16df-4e16-8c12-302830b5b441",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -272,7 +272,7 @@
                 {
                     "name": "Submit",
                     "type": "Button",
-                    "id": "7ef43df4-8a81-4ec6-876f-faae434a6598",
+                    "id": "36dc79e8-9bfd-4c8d-b23b-ba1834462bb9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -281,7 +281,7 @@
                 {
                     "name": "Cancel",
                     "type": "Button",
-                    "id": "aba4c489-c5b7-44d3-93a3-69bf23b300d9",
+                    "id": "b015c8f0-808c-4089-9939-816c77134596",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -290,7 +290,7 @@
                 {
                     "name": "Point",
                     "type": "PassThrough",
-                    "id": "65ecbfdc-f903-49fb-859f-04ae31661fa2",
+                    "id": "8109f427-8b53-4955-813d-d388d96cde0a",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -299,7 +299,7 @@
                 {
                     "name": "Click",
                     "type": "PassThrough",
-                    "id": "5e184e66-5fa2-4cc0-9134-de164a82d3ec",
+                    "id": "6f309f66-dfe4-45eb-b8ed-dc967734e73d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -308,7 +308,7 @@
                 {
                     "name": "ScrollWheel",
                     "type": "PassThrough",
-                    "id": "3dce73d9-accd-4562-ba06-676cae287221",
+                    "id": "f8adc637-45cc-462a-921d-336f8462b835",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -317,7 +317,7 @@
                 {
                     "name": "MiddleClick",
                     "type": "PassThrough",
-                    "id": "27153fcd-5132-4f6e-ad70-303b630efda6",
+                    "id": "b00f3a8f-01cb-4576-941a-0cfe97393ed5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -326,7 +326,7 @@
                 {
                     "name": "RightClick",
                     "type": "PassThrough",
-                    "id": "9638e23c-5cab-41dc-ba2a-a84f793f9acb",
+                    "id": "d083c8c7-e2ec-4396-829a-85586f3f905b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -335,7 +335,7 @@
                 {
                     "name": "TrackedDevicePosition",
                     "type": "PassThrough",
-                    "id": "4b31da62-5ea9-41ac-891c-3acfb7b4b34b",
+                    "id": "b3067120-d70f-4203-bb2e-d5e7139bf958",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -344,7 +344,7 @@
                 {
                     "name": "TrackedDeviceOrientation",
                     "type": "PassThrough",
-                    "id": "cad07ef0-07d9-4b0b-a713-e1dc3229963d",
+                    "id": "99c0070e-12f2-49ca-97e8-17e284579bee",
                     "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": "",
