@@ -9,13 +9,16 @@ public class RandomLoot : MonoBehaviour
     //Rare : 15%
     //Epic : 8%
     //Legendary : 2%
+
+    public static RandomLoot instance;
+
     public int[] table = { 45, 30, 15, 8, 2 };
 
-    public int randomNumber;
-    public int randomCommon;
-    public int randomUncommon;
-    public int randomRare;
-    public int randomEpic;
+    private int randomNumber;
+    private int randomCommon;
+    private int randomUncommon;
+    private int randomRare;
+    private int randomEpic;
 
     [SerializeField] private Fish[] commonFish;
     [SerializeField] private Fish[] uncommonFish;
@@ -23,12 +26,16 @@ public class RandomLoot : MonoBehaviour
     [SerializeField] private Fish[] epicFish;
     [SerializeField] private Fish[] legendaryFish;
 
-    private void Start()
+    private void Awake()
     {
-        chooseFish();
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
-    Fish chooseFish()
+
+    public Fish chooseFish()
     {
         randomNumber = Random.Range(1, 101);
         randomCommon = Random.Range(0, 5);
@@ -63,8 +70,9 @@ public class RandomLoot : MonoBehaviour
         }
     }
 
-    private void Update()
+    public float RandomNumer(float minVal, float maxVal)
     {
-        
+        return Random.Range(minVal, maxVal);
     }
+
 }

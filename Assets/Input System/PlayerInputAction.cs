@@ -71,6 +71,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetFish"",
+                    ""type"": ""Button"",
+                    ""id"": ""be341b05-aba5-4166-a0c5-87478968bc0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,17 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CatchFish"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7904269c-5a58-47a0-ade5-0e0e681143d2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetFish"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -828,6 +848,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_ToggleFishing = m_Player.FindAction("ToggleFishing", throwIfNotFound: true);
         m_Player_CatchFish = m_Player.FindAction("CatchFish", throwIfNotFound: true);
+        m_Player_GetFish = m_Player.FindAction("GetFish", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -904,6 +925,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_ToggleFishing;
     private readonly InputAction m_Player_CatchFish;
+    private readonly InputAction m_Player_GetFish;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -913,6 +935,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @ToggleFishing => m_Wrapper.m_Player_ToggleFishing;
         public InputAction @CatchFish => m_Wrapper.m_Player_CatchFish;
+        public InputAction @GetFish => m_Wrapper.m_Player_GetFish;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -937,6 +960,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @CatchFish.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
                 @CatchFish.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
                 @CatchFish.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
+                @GetFish.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
+                @GetFish.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
+                @GetFish.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -956,6 +982,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @CatchFish.started += instance.OnCatchFish;
                 @CatchFish.performed += instance.OnCatchFish;
                 @CatchFish.canceled += instance.OnCatchFish;
+                @GetFish.started += instance.OnGetFish;
+                @GetFish.performed += instance.OnGetFish;
+                @GetFish.canceled += instance.OnGetFish;
             }
         }
     }
@@ -1117,6 +1146,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnToggleFishing(InputAction.CallbackContext context);
         void OnCatchFish(InputAction.CallbackContext context);
+        void OnGetFish(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

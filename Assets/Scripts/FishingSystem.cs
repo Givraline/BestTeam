@@ -11,6 +11,7 @@ public class FishingSystem : MonoBehaviour
     private Rigidbody2D rb;
 
 
+    [SerializeField] private GameObject fishing;
     [SerializeField] private GameObject fishQTE;
     [SerializeField] private PlayerInputAction controler;
     [SerializeField] private InputAction toggleFishing;
@@ -42,7 +43,7 @@ public class FishingSystem : MonoBehaviour
             isFishing = !isFishing;
             if (isFishing)
             {
-                fishQTE.SetActive(true);
+                fishing.SetActive(true);
                 GetComponent<Mouvement>().enabled = false;
                 rb.velocity = Vector3.zero;
                 Debug.Log("Fishing mode enabled");
@@ -50,6 +51,7 @@ public class FishingSystem : MonoBehaviour
             else
             {
                 fishQTE.SetActive(false);
+                fishing.SetActive(false);
                 GetComponent<Mouvement>().enabled = true;
                 Debug.Log("Fishing mode disable.");
             }

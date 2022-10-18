@@ -1,17 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CatchFish : MonoBehaviour
 {
+    public float fishCatchLifeTime;
+
     [SerializeField] private PlayerInputAction controler;
+    [SerializeField] private InputAction getFish;
     [SerializeField] private InputAction catchFish;
 
     [SerializeField] private GameObject fishQTE;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject fishIndicator;
 
     [SerializeField] private Slider minValue;
     [SerializeField] private Slider maxValue;
@@ -19,51 +24,117 @@ public class CatchFish : MonoBehaviour
 
     [SerializeField] private Fish fish;
 
+    private float fishLifeTimeLeft;
+    private float fishSpeed;
     private bool isSliderValuePositive;
     private event Action OnCursorMove;
+    private event Action OnFishLifeTime;
 
     private void Awake()
     {
         controler = new PlayerInputAction();
         controler.Player.CatchFish.performed += tryCatch => TryCatch();
+        controler.Player.GetFish.performed += getFish => TryGetFish();
     }
 
     private void OnEnable()
     {
-        fishQTE.SetActive(true);
+        fish = RandomLoot.instance.chooseFish();
 
         catchFish = controler.Player.CatchFish;
-        catchFish.Enable();
+        getFish = controler.Player.GetFish;
 
+        fishLifeTimeLeft = fishCatchLifeTime;
         minValue.value = fish.minSliderValue;
         maxValue.value = fish.maxSliderValue;
+        fishSpeed = fish.cursorSpeed;
         cursor.value = 0;
 
-        OnCursorMove += CursorMove;
+        WaitForFish();
+
+    }
+
+    private void OnDisable()
+    {
+        fishIndicator.SetActive(false);
+        OnCursorMove -= CursorMove;
+        OnFishLifeTime -= DecreaseFishLifeTime;
+        catchFish.Disable();
+        getFish.Disable();
     }
 
     private void Update()
     {
         OnCursorMove?.Invoke();
+        OnFishLifeTime?.Invoke();
+    }
+
+    private void WaitForFish()
+    {
+        Invoke("FishBiteBait", RandomLoot.instance.RandomNumer(1f, 10f));
+    }
+
+    private void FishBiteBait()
+    {
+        getFish.Enable();
+        OnFishLifeTime += DecreaseFishLifeTime;
+        fishIndicator.SetActive(true);
+    }
+    public void StartQTE()
+    {
+        fishQTE.SetActive(true);
+        OnCursorMove += CursorMove;
+        catchFish.Enable();
+    }
+
+    private void TryGetFish()
+    {
+        getFish.Disable();
+        OnFishLifeTime -= DecreaseFishLifeTime;
+        fishIndicator.SetActive(false);
+
+        if (fishLifeTimeLeft > 0)
+        {
+            StartQTE();
+        }
+        else
+        {
+            Disable();
+        }
+    }
+
+    private void DecreaseFishLifeTime()
+    {
+        getFish.Enable();
+        fishLifeTimeLeft -= Time.deltaTime;
+
+        if(fishLifeTimeLeft <= 0)
+        {
+            OnFishLifeTime -= DecreaseFishLifeTime;
+            Disable();
+            getFish.Disable();
+        }
     }
 
     private void CursorMove()
     {
+        Debug.Log("active");
+
         if(cursor.value == 0)
             isSliderValuePositive = true;
         else if(cursor.value == 1)
             isSliderValuePositive = false;
 
         if(isSliderValuePositive)
-            cursor.value += Time.deltaTime * fish.cursorSpeed;
+            cursor.value += Time.deltaTime * fishSpeed;
         else
-            cursor.value -= Time.deltaTime * fish.cursorSpeed;
+            cursor.value -= Time.deltaTime * fishSpeed;
     }
 
     private bool TryCatch()
     {
-        Invoke("Disable", 0.5f);
         OnCursorMove -= CursorMove;
+        Invoke("Disable", 0.5f);
         if (cursor.value < maxValue.value && cursor.value > minValue.value)
         {
             Debug.Log("Catch Fish!");
@@ -81,6 +152,7 @@ public class CatchFish : MonoBehaviour
     {
         fishQTE.SetActive(false);
         player.GetComponent<FishingSystem>().ExternalDisableFishingMode();
+        gameObject.SetActive(false);
     }
 
 }
