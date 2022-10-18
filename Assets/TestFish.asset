@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b3c0753eb0974b46a824c153cb872fb, type: 3}
-  m_Name: Saumon
+  m_Name: TestFish
   m_EditorClassIdentifier: 
-  fishName: 
-  fishDescription: 
+  fishName: tset
+  fishDescription: lorem ipsum
   fishRarity: 0
   fishImage: {fileID: 0}
-  minSliderValue: 0
-  maxSliderValue: 0
+  minSliderValue: 0.728
+  maxSliderValue: 0.95
+  cursorSpeed: 1.01

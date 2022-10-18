@@ -18,12 +18,10 @@ public class Mouvement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerControler = new PlayerInputAction();
-        playerControler.Player.ToggleNote.performed += toggle => Test();
     }
     private void OnEnable()
     {
         move = playerControler.Player.Move;
-        toggleNote = playerControler.Player.ToggleNote;
         toggleNote.Enable();
         move.Enable();
 

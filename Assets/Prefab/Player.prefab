@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2760210995253316468}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,6 +199,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 01a8cc7a-4f02-41bb-8c3a-7d6c3e4191d6
     m_ActionName: Player/ToggleNote[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a64fcdc2-e21e-42d7-9423-6007b718ab13
+    m_ActionName: Player/ToggleFishing[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
