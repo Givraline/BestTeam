@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleNote",
+                    "type": "Button",
+                    "id": "01a8cc7a-4f02-41bb-8c3a-7d6c3e4191d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleFishing",
+                    "type": "Button",
+                    "id": "a64fcdc2-e21e-42d7-9423-6007b718ab13",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -174,6 +192,28 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7917cde0-b902-4be8-b33f-765d67bd32a6",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3cb91660-e74a-4272-9dcd-f3c1f8f89de3",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleFishing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
