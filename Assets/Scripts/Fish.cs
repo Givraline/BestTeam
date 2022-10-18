@@ -4,11 +4,12 @@ using UnityEngine;
 
 
 [CreateAssetMenu]
-public class Fishs : ScriptableObject
+public class Fish : ScriptableObject
 {
 
     [Header("Fish")]
     public string fishName;
+    [TextArea]
     public string fishDescription;
 
     public enum FishRarity
