@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957457263}
   - component: {fileID: 957457262}
+  - component: {fileID: 957457264}
   - component: {fileID: 957457261}
   m_Layer: 0
   m_Name: Main Camera
@@ -207,3 +208,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957457264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957457260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd51dd68b645cf8428239f836323f0b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table: 2d0000001e0000000f0000000800000002000000
+  randomNumber: 0
+  randomCommon: 0
+  randomUncommon: 0
+  randomRare: 0
+  randomEpic: 0
+  commonFish:
+  - {fileID: 11400000, guid: 7c830832efbe1364ea209b99e826ea92, type: 2}
+  - {fileID: 11400000, guid: 091119b9562f62a4a9614723fd10e791, type: 2}
+  - {fileID: 11400000, guid: 2acfafa65a123c74785f4311c1546105, type: 2}
+  - {fileID: 11400000, guid: c27f265459441e644bd243f7c9fec3d0, type: 2}
+  - {fileID: 11400000, guid: e08fd93c00b636444b292f0435afd8ef, type: 2}
+  - {fileID: 11400000, guid: 8b4370772e3d74347a9cc59bf963e463, type: 2}
+  uncommonFish:
+  - {fileID: 11400000, guid: a86d1a8f11bce544ba27d4b5306bf761, type: 2}
+  - {fileID: 11400000, guid: f7280815c95ffea4d940e4246ab51f75, type: 2}
+  - {fileID: 11400000, guid: ed758c7430b53664aadb770171d971e2, type: 2}
+  - {fileID: 11400000, guid: 687b42e63daa4184399e63cc863be723, type: 2}
+  rareFish:
+  - {fileID: 11400000, guid: 079ed36e16c35bb4cac1518ba709cde4, type: 2}
+  - {fileID: 11400000, guid: e80f1d17f1127084281c9f8a10169771, type: 2}
+  - {fileID: 11400000, guid: fcc483889f7b178469545db618ab4545, type: 2}
+  epicFish:
+  - {fileID: 11400000, guid: e1fa7196b2b0c9d4e93e98f53ee2f2d0, type: 2}
+  - {fileID: 11400000, guid: cef2f4c9f68faf243ae8b8da0b15ae20, type: 2}
+  legendaryFish:
+  - {fileID: 11400000, guid: d277c7d46e4355c4e990b2051ae9bb63, type: 2}

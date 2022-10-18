@@ -16,5 +16,5 @@ MonoBehaviour:
   fishDescription: 
   fishRarity: 0
   fishImage: {fileID: 0}
-  minSliderValue: 0
-  maxSliderValue: 0
+  minSliderValue: 0.05
+  maxSliderValue: 0.55
