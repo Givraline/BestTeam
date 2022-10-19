@@ -7,6 +7,8 @@ using UnityEngine;
 public class Fish : ScriptableObject
 {
 
+    public int index;
+
     [Header("Fish")]
     public string fishName;
     [TextArea]
@@ -21,6 +23,7 @@ public class Fish : ScriptableObject
         Legendary
     };
     public FishRarity fishRarity;
+    public Sprite hideFishImage;
     public Sprite fishImage;
 
 
