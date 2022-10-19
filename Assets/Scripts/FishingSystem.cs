@@ -68,7 +68,6 @@ public class FishingSystem : MonoBehaviour
     public void ExternalDisableFishingMode()
     {
         isFishing = true;
-        Debug.Log("sdf");
         ToggleFishingMode(ref isFishing);
     }
 
