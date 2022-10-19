@@ -17,6 +17,7 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private GameObject fishQTE;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject fishIndicator;
+    [SerializeField] private GameObject canva;
 
     [SerializeField] private Slider minValue;
     [SerializeField] private Slider maxValue;
@@ -136,6 +137,7 @@ public class CatchFish : MonoBehaviour
         if (cursor.value < maxValue.value && cursor.value > minValue.value)
         {
             Debug.Log("Catch Fish!");
+            canva.GetComponent<FishDetection>().EnableFish(fish);
             return true;
         }
         else

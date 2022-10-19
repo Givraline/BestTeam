@@ -69,7 +69,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""id"": ""d41c94d4-0a8c-4d00-85a5-c9db808fde10"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -78,7 +78,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""id"": ""be341b05-aba5-4166-a0c5-87478968bc0d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -87,7 +87,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""id"": ""0595262b-2687-4976-851a-79d2d7114c90"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -271,7 +271,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f4d5d9e5-175f-4fdd-8a32-7030324be6db"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",

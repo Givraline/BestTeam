@@ -38,6 +38,8 @@ public class FishingSystem : MonoBehaviour
 
     private void ToggleFishingMode(ref bool isFishing)
     {
+        toggleFishing.Disable();
+        Invoke("AllowDisable", 0.5f);
         if (canFish)
         {
             isFishing = !isFishing;
@@ -58,9 +60,15 @@ public class FishingSystem : MonoBehaviour
         }
     }
 
+    private void AllowDisable()
+    {
+        toggleFishing.Enable();
+    }
+
     public void ExternalDisableFishingMode()
     {
         isFishing = true;
+        Debug.Log("sdf");
         ToggleFishingMode(ref isFishing);
     }
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   fishDescription: 
   fishRarity: 0
   hideFishImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  fishImage: {fileID: 0}
+  fishImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   minSliderValue: 0.225
   maxSliderValue: 0.725
   cursorSpeed: 0.5
