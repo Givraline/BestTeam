@@ -118,8 +118,6 @@ public class CatchFish : MonoBehaviour
 
     private void CursorMove()
     {
-        Debug.Log("active");
-
         if(cursor.value == 0)
             isSliderValuePositive = true;
         else if(cursor.value == 1)

@@ -34,7 +34,6 @@ public class RandomLoot : MonoBehaviour
         }
     }
 
-
     public Fish chooseFish()
     {
         randomNumber = Random.Range(1, 101);

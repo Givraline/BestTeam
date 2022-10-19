@@ -18,3 +18,4 @@ MonoBehaviour:
   fishImage: {fileID: 0}
   minSliderValue: 0.095
   maxSliderValue: 0.595
+  cursorSpeed: 0.75
