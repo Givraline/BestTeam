@@ -12,11 +12,13 @@ public class Mouvement : MonoBehaviour
 
     private Vector2 mouvement;
     private Rigidbody2D rb;
+    private Animator animator;
 
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         playerControler = new PlayerInputAction();
     }
     private void OnEnable()
@@ -36,6 +38,23 @@ public class Mouvement : MonoBehaviour
     private void Update()
     {
         mouvement = move.ReadValue<Vector2>().normalized;
+        if(mouvement.x == 0 && mouvement.y == 0)
+        {
+            animator.SetInteger("speed", -1);
+        }
+        else
+        {
+            animator.SetInteger("speed", 1);
+        }
+
+        if(mouvement.x > 0)
+        {
+            transform.eulerAngles = new Vector3(0,180,0);
+        }
+        else if(mouvement.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0,0,0);
+        }
     }
 
     private void FixedUpdate()
