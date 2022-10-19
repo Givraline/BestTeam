@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3c0753eb0974b46a824c153cb872fb, type: 3}
   m_Name: Common 3
   m_EditorClassIdentifier: 
+  index: 0
   fishName: Fish Common 3
   fishDescription: 
   fishRarity: 0
+  hideFishImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   fishImage: {fileID: 0}
   minSliderValue: 0.225
   maxSliderValue: 0.725
