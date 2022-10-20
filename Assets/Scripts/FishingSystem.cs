@@ -9,6 +9,7 @@ public class FishingSystem : MonoBehaviour
     private bool canFish;
     private bool isFishing;
     private Rigidbody2D rb;
+    private Transform target;
 
 
     [SerializeField] private GameObject fishing;
@@ -45,6 +46,8 @@ public class FishingSystem : MonoBehaviour
             isFishing = !isFishing;
             if (isFishing)
             {
+                LookAtTheLake();
+
                 fishing.SetActive(true);
                 GetComponent<Mouvement>().enabled = false;
                 rb.velocity = Vector3.zero;
@@ -58,6 +61,14 @@ public class FishingSystem : MonoBehaviour
                 Debug.Log("Fishing mode disable.");
             }
         }
+    }
+
+    private void LookAtTheLake()
+    {
+        Debug.Log(target.transform.position.x - transform.position.x);
+        Debug.Log(target.transform.position.y - transform.position.y);
+        // -7
+        // 4
     }
 
     private void AllowDisable()
@@ -75,7 +86,10 @@ public class FishingSystem : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "FishableArea")
+        {
             canFish = true;
+            target = collision.transform;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -83,6 +97,7 @@ public class FishingSystem : MonoBehaviour
         if (collision.tag == "FishableArea")
         {
             canFish = false;
+            target = null;
         }
     }
 

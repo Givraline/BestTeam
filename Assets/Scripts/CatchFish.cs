@@ -57,6 +57,7 @@ public class CatchFish : MonoBehaviour
 
     private void OnDisable()
     {
+        fishLifeTimeLeft = fishCatchLifeTime;
         fishIndicator.SetActive(false);
         OnCursorMove -= CursorMove;
         OnFishLifeTime -= DecreaseFishLifeTime;
@@ -132,6 +133,7 @@ public class CatchFish : MonoBehaviour
 
     private bool TryCatch()
     {
+        catchFish.Disable();
         OnCursorMove -= CursorMove;
         Invoke("Disable", 0.5f);
         if (cursor.value < maxValue.value && cursor.value > minValue.value)

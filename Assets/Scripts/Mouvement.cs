@@ -31,6 +31,7 @@ public class Mouvement : MonoBehaviour
 
     private void OnDisable()
     {
+        animator.SetFloat("Speed", 0);
         move.Disable();
         toggleNote.Disable();
     }
@@ -40,12 +41,13 @@ public class Mouvement : MonoBehaviour
         mouvement = move.ReadValue<Vector2>().normalized;
         if(mouvement.x == 0 && mouvement.y == 0)
         {
-            animator.SetInteger("speed", -1);
+            animator.SetFloat("Speed", Mathf.Abs(mouvement.x) + Mathf.Abs(mouvement.y));
         }
         else
         {
-            animator.SetInteger("speed", 1);
+            animator.SetFloat("Speed", Mathf.Abs(mouvement.x) + Mathf.Abs(mouvement.y));
         }
+
 
         Vector3 characterScale = transform.localScale;
         if(mouvement.x > 0)
