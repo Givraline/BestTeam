@@ -1277,7 +1277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7129631813164062620, guid: efb228530ef7c9e41981ebdbe7b47986, type: 3}
       propertyPath: m_Name
-      value: Se
+      value: Sea
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1412082908, guid: efb228530ef7c9e41981ebdbe7b47986, type: 3}

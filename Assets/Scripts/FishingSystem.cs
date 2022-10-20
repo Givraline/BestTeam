@@ -12,6 +12,7 @@ public class FishingSystem : MonoBehaviour
     private bool isSea;
     private Rigidbody2D rb;
     private Transform target;
+    private Animator animator;
 
 
     [SerializeField] private GameObject fishing;
@@ -23,6 +24,7 @@ public class FishingSystem : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         controler = new PlayerInputAction();
         controler.Player.ToggleFishing.performed += toggle => ToggleFishingMode(ref isFishing);
@@ -49,6 +51,7 @@ public class FishingSystem : MonoBehaviour
             if (isFishing)
             {
                 LookAtTheLake();
+                animator.SetTrigger("FishTriger");
 
                 fishing.SetActive(true);
                 GetComponent<Mouvement>().enabled = false;
@@ -57,6 +60,7 @@ public class FishingSystem : MonoBehaviour
             }
             else
             {
+                animator.SetTrigger("StopFishing");
                 fishQTE.SetActive(false);
                 fishing.SetActive(false);
                 GetComponent<Mouvement>().enabled = true;
