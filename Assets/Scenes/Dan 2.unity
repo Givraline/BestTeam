@@ -351,11 +351,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180208461}
   m_CullTransparentMesh: 1
+--- !u!1 &227552556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2760210995253316457, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+  m_PrefabInstance: {fileID: 1029844460}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &227552565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2760210995253316458, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
   m_PrefabInstance: {fileID: 1029844460}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &227552566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227552556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6b50bf9f83c184698125dbd6869606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vcam: {fileID: 2015042810}
+  maxFieldOfView: 0
+  minFieldOfView: 0
+  zoomSpeed: 0
+  zoomTest: 0
 --- !u!1 &308068541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1072,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 9
   orthographic: 1
   orthographic size: 9
   m_Depth: -1
@@ -1996,6 +2018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2015042811}
   - component: {fileID: 2015042810}
+  - component: {fileID: 2015042812}
   m_Layer: 0
   m_Name: VCam
   m_TagString: Untagged
@@ -2021,10 +2044,10 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 227552565}
   m_Follow: {fileID: 227552565}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 9
     OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -2057,6 +2080,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2015042812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015042809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6b50bf9f83c184698125dbd6869606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vcam: {fileID: 2015042810}
+  maxFieldOfView: 0
+  minFieldOfView: 0
+  zoomSpeed: 2
+  zoomTest: 0
 --- !u!1 &2045263887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2489,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1412082908, guid: efb228530ef7c9e41981ebdbe7b47986, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[13].x
+      value: -0.8981837
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412082908, guid: efb228530ef7c9e41981ebdbe7b47986, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[13].y
+      value: -0.48474264
+      objectReference: {fileID: 0}
     - target: {fileID: 1412082910, guid: efb228530ef7c9e41981ebdbe7b47986, type: 3}
       propertyPath: m_GravityScale
       value: 0
