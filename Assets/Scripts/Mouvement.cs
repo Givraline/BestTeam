@@ -47,14 +47,18 @@ public class Mouvement : MonoBehaviour
             animator.SetInteger("speed", 1);
         }
 
+        Vector3 characterScale = transform.localScale;
         if(mouvement.x > 0)
         {
-            transform.eulerAngles = new Vector3(0,180,0);
+            //transform.eulerAngles = new Vector3(0,180,0);
+            characterScale.x = -1;
         }
         else if(mouvement.x < 0)
         {
-            transform.eulerAngles = new Vector3(0,0,0);
+            //transform.eulerAngles = new Vector3(0,0,0);
+            characterScale.x = 1;
         }
+        transform.localScale = characterScale;
     }
 
     private void FixedUpdate()
