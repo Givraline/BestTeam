@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class FishDetection : MonoBehaviour
 {
     public GameObject[] Slot;
     public Fish[] FishArray;
+    public TextMeshPro[] FishDescription;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class FishDetection : MonoBehaviour
            if(f == fish)
            {
                 Slot[i].GetComponent<Image>().sprite = f.fishImage;
+                Slot[i].GetComponentInChildren<TextMeshPro>().text = f.fishName;
                 break;
            }
             i++;
