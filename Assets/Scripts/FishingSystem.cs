@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,7 @@ public class FishingSystem : MonoBehaviour
 {
     private bool canFish;
     private bool isFishing;
+    private bool isSea;
     private Rigidbody2D rb;
     private Transform target;
 
@@ -65,10 +67,40 @@ public class FishingSystem : MonoBehaviour
 
     private void LookAtTheLake()
     {
-        Debug.Log(target.transform.position.x - transform.position.x);
-        Debug.Log(target.transform.position.y - transform.position.y);
-        // -7
-        // 4
+        float playerPosX = transform.position.x;
+        float playerPosY = transform.position.y;
+
+        float yMaxLimit = 19.4f;
+        float yMinLimit = -10.3f;
+
+        if (!isSea)
+        {
+            yMaxLimit = 6.6f;
+            yMinLimit = -4.7f;
+        }
+
+        if(playerPosY >= yMaxLimit)
+        {
+            Debug.Log(playerPosY);
+            Debug.Log("Top");
+        }
+        else if(playerPosY <= yMinLimit)
+        {
+            Debug.Log("Bot");
+        }
+        else if(playerPosX > 0.5f)
+        {
+            Debug.Log("right");
+        }
+        else if(playerPosX < 0.5f)
+        {
+            Debug.Log("left");
+        }
+
+        Debug.Log(playerPosX + " " + playerPosY);
+
+        // -26
+        // 3.6
     }
 
     private void AllowDisable()
@@ -89,6 +121,9 @@ public class FishingSystem : MonoBehaviour
         {
             canFish = true;
             target = collision.transform;
+
+            if (collision.gameObject.name == "Sea")
+                isSea = true;
         }
     }
 
@@ -98,6 +133,7 @@ public class FishingSystem : MonoBehaviour
         {
             canFish = false;
             target = null;
+            isSea=false;
         }
     }
 
