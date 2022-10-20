@@ -7,8 +7,6 @@ using UnityEngine;
 public class Fish : ScriptableObject
 {
 
-    public int index;
-
     [Header("Fish")]
     public string fishName;
     [TextArea]

@@ -8,7 +8,6 @@ public class FishDetection : MonoBehaviour
 {
     public GameObject[] Slot;
     public Fish[] FishArray;
-    public TextMeshPro[] FishDescription;
 
     // Start is called before the first frame update
     void Start()

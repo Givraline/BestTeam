@@ -7,6 +7,7 @@ public class NextPage : MonoBehaviour
 {
     [Range(0, 3)] public int currentOption = 0;
 
+    [SerializeField] private GameObject[] pages;
     [SerializeField] private Button previousButton;
     [SerializeField] private Button nextButton;
 
@@ -16,8 +17,8 @@ public class NextPage : MonoBehaviour
         //setButtonText(currentOption);
 
         // add an event listener to look out for button clicks
-        previousButton.onClick.AddListener(() => myButtonClick(currentOption--));
-        nextButton.onClick.AddListener(() => myButtonClick(currentOption++));
+        previousButton.onClick.AddListener(() => myButtonClick(currentOption--, false));
+        nextButton.onClick.AddListener(() => myButtonClick(currentOption++, true));
     }
 
     private void Update()
@@ -35,70 +36,67 @@ public class NextPage : MonoBehaviour
         }
     }
 
-    public void myButtonClick(int optionValue)
+    public void myButtonClick(int optionValue, bool isNext)
     {
         switch (currentOption)
         {
             case 0:
-                // run stuff for option 1
-                RunCode0();
+                if (isNext)
+                {
+                    DisplayNextPage(currentOption);
+                }
+                else
+                {
+                    DisplayPreviousPage(currentOption);
+                }
 
                 // change the text on the button to be the next option
                 optionValue++;
 
-                //setButtonText(currentOption);
-                break;
-
-            case 1:
-                Debug.Log("Doing option 2 things");
-                RunCode1();
-
-                // change the text on the button to be the next option
-                optionValue++;
-
-                //setButtonText(currentOption);
-                break;
+                previousButton.gameObject.SetActive(false);
+                return;
 
             case 2:
-                Debug.Log("Doing option 3 things");
-                RunCode2();
+                if (isNext)
+                {
+                    DisplayNextPage(currentOption);
+                }
+                else
+                {
+                    DisplayPreviousPage(currentOption);
+                }
 
                 // change the text on the button to be the next option
                 optionValue++;
 
                 //setButtonText(currentOption);
-                break;
+                nextButton.gameObject.SetActive(false);
+                return;
 
-            case 3:
-                Debug.Log("Doing option 4 things");
-                RunCode3();
-
-                // change the text on the button to be the next option
-                optionValue++;
-
-                //setButtonText(currentOption);
-                break;
+            
         }
+        if (isNext)
+        {
+            DisplayNextPage(currentOption);
+        }
+        else
+        {
+            DisplayPreviousPage(currentOption);
+        }
+        previousButton.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(true);
 
     }
 
-    public void RunCode0()
+    public void DisplayNextPage(int currentOption)
     {
-        //Do something
+        pages[currentOption - 1].gameObject.SetActive(false);
+        pages[currentOption].gameObject.SetActive(true);
     }
 
-    public void RunCode1()
+    public void DisplayPreviousPage(int currentOption)
     {
-        //Do something
-    }
-
-    public void RunCode2()
-    {
-        //Do something
-    }
-
-    public void RunCode3()
-    {
-        //Do something
+        pages[currentOption + 1].gameObject.SetActive(false);
+        pages[currentOption].gameObject.SetActive(true);
     }
 }

@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b3c0753eb0974b46a824c153cb872fb, type: 3}
-  m_Name: Uncommon 3
+  m_Name: Salty Legendary
   m_EditorClassIdentifier: 
-  index: 0
-  fishName: Fish Uncommon 3
+  fishName: Fish Epic
   fishDescription: 
   fishRarity: 0
-  hideFishImage: {fileID: 0}
+  hideFishImage: {fileID: 21300000, guid: df23940c4d7ad3047aee7bf392220449, type: 3}
   fishImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   minSliderValue: 0.5
-  maxSliderValue: 0.9
-  cursorSpeed: 0.75
+  maxSliderValue: 0.6
+  cursorSpeed: 2
