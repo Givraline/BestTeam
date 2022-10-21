@@ -20,6 +20,7 @@ public class FishDictionnary : MonoBehaviour
     void DictionnaryOpen()
     {
         dictionnaryUi.SetActive(!dictionnaryUi.activeSelf);
+        AudioManager.instance.Play("openBook");
     }
 
     private void OnEnable()

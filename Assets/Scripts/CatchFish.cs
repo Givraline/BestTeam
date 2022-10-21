@@ -20,6 +20,7 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private GameObject canva;
     [SerializeField] private GameObject fishPulled;
     [SerializeField] Animator animator;
+    [SerializeField] Animator PlayerAnimator;
 
     [SerializeField] private Slider minValue;
     [SerializeField] private Slider maxValue;
@@ -99,6 +100,7 @@ public class CatchFish : MonoBehaviour
         getFish.Enable();
         OnFishLifeTime += DecreaseFishLifeTime;
         fishIndicator.SetActive(true);
+        PlayerAnimator.SetTrigger("Catch");
     }
     public void StartQTE()
     {
@@ -179,6 +181,7 @@ public class CatchFish : MonoBehaviour
     public void Disable()
     {
         AudioManager.instance.Stop("moulinet");
+        PlayerAnimator.ResetTrigger("Catch");
         isFishing = false;
         fishQTE.SetActive(false);
         player.GetComponent<FishingSystem>().ExternalDisableFishingMode();

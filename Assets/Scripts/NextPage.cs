@@ -18,7 +18,9 @@ public class NextPage : MonoBehaviour
 
         // add an event listener to look out for button clicks
         previousButton.onClick.AddListener(() => myButtonClick(currentOption--, false));
+        previousButton.onClick.AddListener(() => AudioManager.instance.Play("prevPage"));
         nextButton.onClick.AddListener(() => myButtonClick(currentOption++, true));
+        nextButton.onClick.AddListener(() => AudioManager.instance.Play("nextPage"));
     }
 
     private void Update()
