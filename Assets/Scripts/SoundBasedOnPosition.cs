@@ -10,6 +10,21 @@ public class SoundBasedOnPosition : MonoBehaviour
     [SerializeField] private float secondCircleRadius;
 
     [SerializeField] LayerMask layer;
+    private Sound ocean;
+    private Sound lake;
+
+    private AudioManager audio;
+
+    private void Start()
+    {
+        audio = AudioManager.instance;
+        audio.Play("Ocean");
+        audio.Play("Lake");
+
+        ocean = audio.Findsound("Ocean");
+        lake = audio.Findsound("Lake");
+    }
+
 
     private void Update()
     {
@@ -20,15 +35,18 @@ public class SoundBasedOnPosition : MonoBehaviour
 
         if(fCircle && sCircle)
         {
-            Debug.Log("bruit que de lac");
+            audio.UpdateSound("Ocean", 0, ocean.pitch, ocean.loop);
+            audio.UpdateSound("Lake", lake.volume, lake.pitch, lake.loop);
         }
         else if (sCircle)
         {
-            Debug.Log("Bruit blend");
+            audio.UpdateSound("Ocean", ocean.volume / 2, ocean.pitch, ocean.loop);
+            audio.UpdateSound("Lake", lake.volume / 2, lake.pitch, lake.loop);
         }
         else
         {
-            Debug.Log("Bruit que de mer");
+            audio.UpdateSound("Lake", 0, lake.pitch, lake.loop);
+            audio.UpdateSound("Ocean", ocean.volume, ocean.pitch, ocean.loop);
         }
     }
 
