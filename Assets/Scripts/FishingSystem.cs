@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class FishingSystem : MonoBehaviour
@@ -22,6 +23,7 @@ public class FishingSystem : MonoBehaviour
     [SerializeField] private PlayerInputAction controler;
     [SerializeField] private InputAction toggleFishing;
     [SerializeField] private InputAction move;
+    [SerializeField] private Image icon;
 
 
     private void Awake()
@@ -30,6 +32,7 @@ public class FishingSystem : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controler = new PlayerInputAction();
         controler.Player.ToggleFishing.performed += toggle => ToggleFishingMode(ref isFishing);
+        icon.color = Color.gray;
     }
     private void OnEnable()
     {
@@ -150,6 +153,7 @@ public class FishingSystem : MonoBehaviour
         {
             canFish = true;
             target = collision.transform;
+            icon.color = Color.white;
 
             if (collision.gameObject.name == "Sea")
                 isSea = true;
@@ -160,6 +164,7 @@ public class FishingSystem : MonoBehaviour
     {
         if (collision.tag == "FishableArea" || collision.tag == "Sea")
         {
+            icon.color = Color.gray;
             canFish = false;
             target = null;
             isSea=false;
