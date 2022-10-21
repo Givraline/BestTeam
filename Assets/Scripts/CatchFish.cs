@@ -18,6 +18,8 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject fishIndicator;
     [SerializeField] private GameObject canva;
+    [SerializeField] private GameObject fishPulled;
+     private Animator animator;
 
     [SerializeField] private Slider minValue;
     [SerializeField] private Slider maxValue;
@@ -37,6 +39,7 @@ public class CatchFish : MonoBehaviour
         controler = new PlayerInputAction();
         controler.Player.CatchFish.performed += tryCatch => TryCatch();
         controler.Player.GetFish.performed += getFish => TryGetFish();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -150,6 +153,9 @@ public class CatchFish : MonoBehaviour
         {
             Debug.Log("Catch Fish!");
             canva.GetComponent<FishDetection>().EnableFish(fish);
+            fishPulled.GetComponent<Image>().sprite = fish.hideFishImage;
+            fishPulled.SetActive(true);
+            animator.Play("fishPulled");
             return true;
         }
         else
