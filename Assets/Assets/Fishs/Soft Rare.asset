@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3c0753eb0974b46a824c153cb872fb, type: 3}
   m_Name: Soft Rare
   m_EditorClassIdentifier: 
-  fishName: Fish Rare 1
-  fishDescription: 
+  fishName: "Poiscaille dor\xE9e"
+  fishDescription: "\xE7a briiiiiiille"
   fishRarity: 0
   hideFishImage: {fileID: 21300000, guid: fff50a625bdc8dc47bb2f086c3ef219d, type: 3}
   fishImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}

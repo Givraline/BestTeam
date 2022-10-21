@@ -24,6 +24,7 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private Slider cursor;
 
     [SerializeField] private Fish fish;
+    [SerializeField] private FishingSystem systemFish;
 
     private float fishLifeTimeLeft;
     private float fishSpeed;
@@ -40,7 +41,16 @@ public class CatchFish : MonoBehaviour
 
     private void OnEnable()
     {
-        fish = RandomLoot.instance.chooseFish();
+        if (systemFish.isSea)
+        {
+            fish = RandomLoot.instance.chooseSeaFish();
+        }
+        else
+        {
+            fish = RandomLoot.instance.chooseFish();
+        }
+        Debug.Log(fish.fishName);
+
 
         catchFish = controler.Player.CatchFish;
         getFish = controler.Player.GetFish;

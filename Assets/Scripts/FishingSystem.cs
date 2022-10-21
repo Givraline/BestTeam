@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 
 public class FishingSystem : MonoBehaviour
 {
+    [HideInInspector] public bool isSea;
+   
+
     private bool canFish;
     private bool isFishing;
-    private bool isSea;
     private Rigidbody2D rb;
     private Transform target;
     private Animator animator;
@@ -85,23 +87,23 @@ public class FishingSystem : MonoBehaviour
 
         if(playerPosY >= yMaxLimit)
         {
-            Debug.Log(playerPosY);
-            Debug.Log("Top");
+            //Debug.Log(playerPosY);
+            //Debug.Log("Top");
         }
         else if(playerPosY <= yMinLimit)
         {
-            Debug.Log("Bot");
+            //Debug.Log("Bot");
         }
         else if(playerPosX > 0.5f)
         {
-            Debug.Log("right");
+            //Debug.Log("right");
         }
         else if(playerPosX < 0.5f)
         {
-            Debug.Log("left");
+            //Debug.Log("left");
         }
 
-        Debug.Log(playerPosX + " " + playerPosY);
+        //Debug.Log(playerPosX + " " + playerPosY);
 
         // -26
         // 3.6

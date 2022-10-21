@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3c0753eb0974b46a824c153cb872fb, type: 3}
   m_Name: Salty Legendary
   m_EditorClassIdentifier: 
-  fishName: Fish Epic
-  fishDescription: 
+  fishName: Ratio Empror
+  fishDescription: Tension les filles, en mode ratio
   fishRarity: 0
   hideFishImage: {fileID: 21300000, guid: df23940c4d7ad3047aee7bf392220449, type: 3}
   fishImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
