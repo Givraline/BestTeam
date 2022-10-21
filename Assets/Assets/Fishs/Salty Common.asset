@@ -15,8 +15,8 @@ MonoBehaviour:
   fishName: "Queue \xE9clabousante saphir"
   fishDescription: un poisson bleau dans de l'eau bleu
   fishRarity: 0
-  hideFishImage: {fileID: 21300000, guid: 199737d178921a74e9e26206f38f73f4, type: 3}
-  fishImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  hideFishImage: {fileID: 21300000, guid: db0808a9de41cd04990fe11ff5a878a2, type: 3}
+  fishImage: {fileID: 21300000, guid: 199737d178921a74e9e26206f38f73f4, type: 3}
   minSliderValue: 0.325
   maxSliderValue: 0.825
   cursorSpeed: 0.5

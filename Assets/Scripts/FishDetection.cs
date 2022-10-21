@@ -10,7 +10,7 @@ public class FishDetection : MonoBehaviour
     public Fish[] FishArray;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         int i = 0;
         foreach(GameObject obj in Slot)
@@ -35,8 +35,7 @@ public class FishDetection : MonoBehaviour
            {
                 TextMeshProUGUI[] texts = Slot[i].GetComponentsInChildren<TextMeshProUGUI>();
 
-                Slot[i].GetComponent<Image>().sprite = f.hideFishImage;
-                Slot[i].GetComponent<Image>().color = Color.white;
+                Slot[i].GetComponent<Image>().sprite = f.fishImage;
                 texts[0].text = f.fishName;
                 texts[1].text = f.fishDescription;
                 break;

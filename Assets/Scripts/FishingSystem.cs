@@ -59,6 +59,7 @@ public class FishingSystem : MonoBehaviour
                 fishing.SetActive(true);
                 GetComponent<Mouvement>().enabled = false;
                 rb.velocity = Vector3.zero;
+                AudioManager.instance.Play("fishrode");
                 Debug.Log("Fishing mode enabled");
             }
             else

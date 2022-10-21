@@ -116,6 +116,7 @@ public class CatchFish : MonoBehaviour
         if (fishLifeTimeLeft > 0)
         {
             StartQTE();
+            AudioManager.instance.Play("moulinet");
         }
         else
         {
@@ -156,12 +157,13 @@ public class CatchFish : MonoBehaviour
         OnCursorMove -= CursorMove;
         isFishing = false;
 
+        AudioManager.instance.Stop("moulinet");
         Invoke("Disable", 0.5f);
         if (cursor.value < maxValue.value && cursor.value > minValue.value)
         {
             Debug.Log("Catch Fish!");
             canva.GetComponent<FishDetection>().EnableFish(fish);
-            fishPulled.GetComponent<Image>().sprite = fish.hideFishImage;
+            fishPulled.GetComponent<Image>().sprite = fish.fishImage;
             fishPulled.SetActive(true);
             animator.SetTrigger("Triger");
             return true;
@@ -176,6 +178,7 @@ public class CatchFish : MonoBehaviour
 
     public void Disable()
     {
+        AudioManager.instance.Stop("moulinet");
         isFishing = false;
         fishQTE.SetActive(false);
         player.GetComponent<FishingSystem>().ExternalDisableFishingMode();

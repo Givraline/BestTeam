@@ -31,8 +31,6 @@ public class SoundBasedOnPosition : MonoBehaviour
         bool fCircle = Physics2D.OverlapCircle(Vector2.zero, fisrtCircleRadius, layer);
         bool sCircle = Physics2D.OverlapCircle(Vector2.zero, secondCircleRadius, layer);
 
-        Debug.Log(fCircle);
-
         if(fCircle && sCircle)
         {
             audio.UpdateSound("Ocean", 0, ocean.pitch, ocean.loop);
