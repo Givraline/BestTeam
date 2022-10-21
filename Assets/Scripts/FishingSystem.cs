@@ -55,7 +55,6 @@ public class FishingSystem : MonoBehaviour
             if (isFishing)
             {
                 LookAtTheLake();
-                animator.SetTrigger("FishTriger");
 
                 fishing.SetActive(true);
                 GetComponent<Mouvement>().enabled = false;
@@ -81,6 +80,8 @@ public class FishingSystem : MonoBehaviour
         float yMaxLimit = 19.4f;
         float yMinLimit = -10.3f;
 
+        string trigger = "FishBaseTriger";
+
         if (!isSea)
         {
             yMaxLimit = 6.6f;
@@ -91,17 +92,36 @@ public class FishingSystem : MonoBehaviour
         {
             //Debug.Log(playerPosY);
             //Debug.Log("Top");
+            if (isSea)
+            {
+                trigger = "FishBackTriger";
+            }
+            else
+            {
+                trigger = "FishFaceTriger";
+            }
+            animator.SetTrigger(trigger);
         }
         else if(playerPosY <= yMinLimit)
         {
-            //Debug.Log("Bot");
+            if (isSea)
+            {
+                trigger = "FishFaceTriger";
+            }
+            else
+            {
+                trigger = "FishBackTriger";
+            }
+            animator.SetTrigger(trigger);
         }
         else if(playerPosX > 0.5f)
         {
+            animator.SetTrigger(trigger);
             //Debug.Log("right");
         }
         else if(playerPosX < 0.5f)
         {
+            animator.SetTrigger(trigger);
             //Debug.Log("left");
         }
 
@@ -125,7 +145,7 @@ public class FishingSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "FishableArea")
+        if(collision.tag == "FishableArea" || collision.tag == "Sea")
         {
             canFish = true;
             target = collision.transform;
@@ -137,7 +157,7 @@ public class FishingSystem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "FishableArea")
+        if (collision.tag == "FishableArea" || collision.tag == "Sea")
         {
             canFish = false;
             target = null;
