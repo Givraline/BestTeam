@@ -9,9 +9,9 @@ public class FishingSystem : MonoBehaviour
 {
     [HideInInspector] public bool isSea;
    
+    [HideInInspector] public bool isFishing;
 
     private bool canFish;
-    private bool isFishing;
     private Rigidbody2D rb;
     private Transform target;
     private Animator animator;
@@ -33,6 +33,7 @@ public class FishingSystem : MonoBehaviour
     }
     private void OnEnable()
     {
+        canFish = true;
         toggleFishing = controler.Player.ToggleFishing;
         move = controler.Player.Move;
         toggleFishing.Enable();
@@ -41,6 +42,7 @@ public class FishingSystem : MonoBehaviour
     private void OnDisable()
     {
         toggleFishing.Disable();
+        canFish = false;
     }
 
     private void ToggleFishingMode(ref bool isFishing)

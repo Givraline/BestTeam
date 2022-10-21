@@ -19,7 +19,7 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private GameObject fishIndicator;
     [SerializeField] private GameObject canva;
     [SerializeField] private GameObject fishPulled;
-     private Animator animator;
+    [SerializeField] Animator animator;
 
     [SerializeField] private Slider minValue;
     [SerializeField] private Slider maxValue;
@@ -31,6 +31,7 @@ public class CatchFish : MonoBehaviour
     private float fishLifeTimeLeft;
     private float fishSpeed;
     private bool isSliderValuePositive;
+    private bool isFishing;
     private event Action OnCursorMove;
     private event Action OnFishLifeTime;
 
@@ -39,7 +40,6 @@ public class CatchFish : MonoBehaviour
         controler = new PlayerInputAction();
         controler.Player.CatchFish.performed += tryCatch => TryCatch();
         controler.Player.GetFish.performed += getFish => TryGetFish();
-        animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -54,7 +54,7 @@ public class CatchFish : MonoBehaviour
         }
         Debug.Log(fish.fishName);
 
-
+        isFishing = false;
         catchFish = controler.Player.CatchFish;
         getFish = controler.Player.GetFish;
 
@@ -86,7 +86,12 @@ public class CatchFish : MonoBehaviour
 
     private void WaitForFish()
     {
-        Invoke("FishBiteBait", RandomLoot.instance.RandomNumer(1f, 10f));
+        if (!isFishing)
+        {
+            Debug.Log("prout");
+            isFishing = true;
+            Invoke("FishBiteBait", RandomLoot.instance.RandomNumer(1f, 10f));
+        }
     }
 
     private void FishBiteBait()
@@ -114,6 +119,7 @@ public class CatchFish : MonoBehaviour
         }
         else
         {
+            isFishing = false;
             Disable();
         }
     }
@@ -148,6 +154,8 @@ public class CatchFish : MonoBehaviour
     {
         catchFish.Disable();
         OnCursorMove -= CursorMove;
+        isFishing = false;
+
         Invoke("Disable", 0.5f);
         if (cursor.value < maxValue.value && cursor.value > minValue.value)
         {
@@ -155,7 +163,7 @@ public class CatchFish : MonoBehaviour
             canva.GetComponent<FishDetection>().EnableFish(fish);
             fishPulled.GetComponent<Image>().sprite = fish.hideFishImage;
             fishPulled.SetActive(true);
-            animator.Play("fishPulled");
+            animator.SetTrigger("Triger");
             return true;
         }
         else
@@ -168,6 +176,7 @@ public class CatchFish : MonoBehaviour
 
     public void Disable()
     {
+        isFishing = false;
         fishQTE.SetActive(false);
         player.GetComponent<FishingSystem>().ExternalDisableFishingMode();
         gameObject.SetActive(false);

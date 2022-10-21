@@ -35,7 +35,7 @@ public class FishDetection : MonoBehaviour
            {
                 TextMeshProUGUI[] texts = Slot[i].GetComponentsInChildren<TextMeshProUGUI>();
 
-                Slot[i].GetComponent<Image>().sprite = f.fishImage;
+                Slot[i].GetComponent<Image>().sprite = f.hideFishImage;
                 Slot[i].GetComponent<Image>().color = Color.white;
                 texts[0].text = f.fishName;
                 texts[1].text = f.fishDescription;
