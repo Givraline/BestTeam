@@ -7,51 +7,23 @@ using Cinemachine;
 public class CameraBehavior : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera vcam;
-
-    void Start()
-    {
-        //vcam.m_Lens.FieldOfView = 80;
-    }
+    public GameObject cam;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //désac
         if (collision.tag == "FishableArea")
         {
-            StartCoroutine(Zoom());
-            IEnumerator Zoom()
-            {
-                float zoomTotalTime = 3;
-                float zoomTime = 1;
-                float maxFieldOfView = 80;
-                float minFieldOfView = 60;
-                while(zoomTime > 0)
-                {
-                    zoomTime -= Time.deltaTime;
-                    vcam.m_Lens.FieldOfView = Mathf.Lerp(maxFieldOfView, minFieldOfView, 1 - (zoomTime / zoomTotalTime));
-                    yield return null;
-                }
-            }
+            cam.SetActive(false);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //réac
         if (collision.tag == "FishableArea")
         {
-            StartCoroutine(DeZoom());
-            IEnumerator DeZoom()
-            {
-                float zoomTotalTime = 1;
-                float zoomTime = 1;
-                float maxFieldOfView = 80;
-                float minFieldOfView = 60;
-                while (zoomTime > 0)
-                {
-                    zoomTime -= Time.deltaTime;
-                    vcam.m_Lens.FieldOfView = Mathf.Lerp(minFieldOfView, maxFieldOfView, 1 - (zoomTime / zoomTotalTime));
-                    yield return null;
-                }
-            }
+            cam.SetActive(true);
         }
     }
 }

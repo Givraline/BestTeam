@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: canva
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 655194651, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 957457262}
     - target: {fileID: 1495279696, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: m_Size.y
       value: 1
@@ -241,11 +245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2760210995253316458, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.44
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: 2760210995253316458, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.71
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2760210995253316458, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1503,13 +1507,13 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 80
+  field of view: 88.44
   orthographic: 0
   orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1529,7 +1533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957457260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76945376, y: 0.41001117, z: -9.981785}
+  m_LocalPosition: {x: -5.02, y: -2.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2052,6 +2056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vcam: {fileID: 1393222694}
+  cam: {fileID: 0}
 --- !u!114 &1393222694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,12 +2073,12 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 5
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 2120340166}
   m_Follow: {fileID: 2120340166}
   m_Lens:
-    FieldOfView: 80
+    FieldOfView: 70
     OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -2098,7 +2103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393222692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76945376, y: 0.41001117, z: -9.981785}
+  m_LocalPosition: {x: 4.18, y: -0.38, z: -9.981785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2132,6 +2137,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2760210995253316458, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
   m_PrefabInstance: {fileID: 87558552}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1393561761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393561740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6b50bf9f83c184698125dbd6869606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vcam: {fileID: 2015042810}
+  cam: {fileID: 2015042809}
 --- !u!1 &1418978488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2015042811}
   - component: {fileID: 2015042810}
-  - component: {fileID: 2015042812}
   m_Layer: 0
   m_Name: VCam Player
   m_TagString: Untagged
@@ -3270,12 +3288,12 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 5
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 1393561750}
   m_Follow: {fileID: 1393561750}
   m_Lens:
-    FieldOfView: 80
+    FieldOfView: 88.44
     OrthographicSize: 9
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -3300,7 +3318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015042809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.44, y: -0.71, z: -10}
+  m_LocalPosition: {x: -5.02, y: -2.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3308,19 +3326,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2015042812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015042809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f6b50bf9f83c184698125dbd6869606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vcam: {fileID: 2015042810}
 --- !u!1 &2043495599
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,11 +3372,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 079ed36e16c35bb4cac1518ba709cde4, type: 2}
   - {fileID: 11400000, guid: e80f1d17f1127084281c9f8a10169771, type: 2}
   - {fileID: 11400000, guid: fcc483889f7b178469545db618ab4545, type: 2}
-  epicFish:
-  - {fileID: 11400000, guid: e1fa7196b2b0c9d4e93e98f53ee2f2d0, type: 2}
-  - {fileID: 11400000, guid: cef2f4c9f68faf243ae8b8da0b15ae20, type: 2}
   legendaryFish:
   - {fileID: 11400000, guid: d277c7d46e4355c4e990b2051ae9bb63, type: 2}
+  commonFishSea: []
+  uncommonFishSea: []
+  rareFishSea: []
+  legendaryFishSea: []
 --- !u!4 &2043495601
 Transform:
   m_ObjectHideFlags: 0
@@ -3704,7 +3710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120340165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76945376, y: 0.41001117, z: 0.018214915}
+  m_LocalPosition: {x: 4.18, y: -0.38, z: 0.018214915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
