@@ -55,21 +55,39 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ToggleNote"",
+                    ""name"": ""Fish dictionnary"",
                     ""type"": ""Button"",
-                    ""id"": ""01a8cc7a-4f02-41bb-8c3a-7d6c3e4191d6"",
+                    ""id"": ""84652fc6-dc78-4b57-9a3e-cc56627715fc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CatchFish"",
+                    ""type"": ""Button"",
+                    ""id"": ""d41c94d4-0a8c-4d00-85a5-c9db808fde10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GetFish"",
+                    ""type"": ""Button"",
+                    ""id"": ""be341b05-aba5-4166-a0c5-87478968bc0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""ToggleFishing"",
                     ""type"": ""Button"",
-                    ""id"": ""a64fcdc2-e21e-42d7-9423-6007b718ab13"",
+                    ""id"": ""0595262b-2687-4976-851a-79d2d7114c90"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -219,18 +237,40 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7917cde0-b902-4be8-b33f-765d67bd32a6"",
-                    ""path"": ""<Keyboard>/t"",
+                    ""id"": ""060879ca-5517-4b1f-99fe-02eb84ae3168"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ToggleNote"",
+                    ""action"": ""Fish dictionnary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3cb91660-e74a-4272-9dcd-f3c1f8f89de3"",
+                    ""id"": ""a3e6861b-08ef-45fc-aa61-ef4575789b68"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CatchFish"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7904269c-5a58-47a0-ade5-0e0e681143d2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GetFish"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4d5d9e5-175f-4fdd-8a32-7030324be6db"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -826,7 +866,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_ToggleNote = m_Player.FindAction("ToggleNote", throwIfNotFound: true);
+        m_Player_Fishdictionnary = m_Player.FindAction("Fish dictionnary", throwIfNotFound: true);
+        m_Player_CatchFish = m_Player.FindAction("CatchFish", throwIfNotFound: true);
+        m_Player_GetFish = m_Player.FindAction("GetFish", throwIfNotFound: true);
         m_Player_ToggleFishing = m_Player.FindAction("ToggleFishing", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -902,7 +944,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_ToggleNote;
+    private readonly InputAction m_Player_Fishdictionnary;
+    private readonly InputAction m_Player_CatchFish;
+    private readonly InputAction m_Player_GetFish;
     private readonly InputAction m_Player_ToggleFishing;
     public struct PlayerActions
     {
@@ -911,7 +955,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @ToggleNote => m_Wrapper.m_Player_ToggleNote;
+        public InputAction @Fishdictionnary => m_Wrapper.m_Player_Fishdictionnary;
+        public InputAction @CatchFish => m_Wrapper.m_Player_CatchFish;
+        public InputAction @GetFish => m_Wrapper.m_Player_GetFish;
         public InputAction @ToggleFishing => m_Wrapper.m_Player_ToggleFishing;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -931,9 +977,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @ToggleNote.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleNote;
-                @ToggleNote.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleNote;
-                @ToggleNote.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleNote;
+                @Fishdictionnary.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFishdictionnary;
+                @Fishdictionnary.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFishdictionnary;
+                @Fishdictionnary.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFishdictionnary;
+                @CatchFish.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
+                @CatchFish.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
+                @CatchFish.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCatchFish;
+                @GetFish.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
+                @GetFish.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
+                @GetFish.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGetFish;
                 @ToggleFishing.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFishing;
                 @ToggleFishing.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFishing;
                 @ToggleFishing.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleFishing;
@@ -950,9 +1002,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @ToggleNote.started += instance.OnToggleNote;
-                @ToggleNote.performed += instance.OnToggleNote;
-                @ToggleNote.canceled += instance.OnToggleNote;
+                @Fishdictionnary.started += instance.OnFishdictionnary;
+                @Fishdictionnary.performed += instance.OnFishdictionnary;
+                @Fishdictionnary.canceled += instance.OnFishdictionnary;
+                @CatchFish.started += instance.OnCatchFish;
+                @CatchFish.performed += instance.OnCatchFish;
+                @CatchFish.canceled += instance.OnCatchFish;
+                @GetFish.started += instance.OnGetFish;
+                @GetFish.performed += instance.OnGetFish;
+                @GetFish.canceled += instance.OnGetFish;
                 @ToggleFishing.started += instance.OnToggleFishing;
                 @ToggleFishing.performed += instance.OnToggleFishing;
                 @ToggleFishing.canceled += instance.OnToggleFishing;
@@ -1115,7 +1173,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnToggleNote(InputAction.CallbackContext context);
+        void OnFishdictionnary(InputAction.CallbackContext context);
+        void OnCatchFish(InputAction.CallbackContext context);
+        void OnGetFish(InputAction.CallbackContext context);
         void OnToggleFishing(InputAction.CallbackContext context);
     }
     public interface IUIActions

@@ -12,18 +12,18 @@ public class Mouvement : MonoBehaviour
 
     private Vector2 mouvement;
     private Rigidbody2D rb;
+    private Animator animator;
 
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         playerControler = new PlayerInputAction();
-        playerControler.Player.ToggleNote.performed += toggle => Test();
     }
     private void OnEnable()
     {
         move = playerControler.Player.Move;
-        toggleNote = playerControler.Player.ToggleNote;
         toggleNote.Enable();
         move.Enable();
 
@@ -31,6 +31,7 @@ public class Mouvement : MonoBehaviour
 
     private void OnDisable()
     {
+        animator.SetFloat("Speed", 0);
         move.Disable();
         toggleNote.Disable();
     }
@@ -38,6 +39,28 @@ public class Mouvement : MonoBehaviour
     private void Update()
     {
         mouvement = move.ReadValue<Vector2>().normalized;
+        if(mouvement.x == 0 && mouvement.y == 0)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(mouvement.x) + Mathf.Abs(mouvement.y));
+        }
+        else
+        {
+            animator.SetFloat("Speed", Mathf.Abs(mouvement.x) + Mathf.Abs(mouvement.y));
+        }
+
+
+        Vector3 characterScale = transform.localScale;
+        if(mouvement.x > 0)
+        {
+            //transform.eulerAngles = new Vector3(0,180,0);
+            characterScale.x = -1;
+        }
+        else if(mouvement.x < 0)
+        {
+            //transform.eulerAngles = new Vector3(0,0,0);
+            characterScale.x = 1;
+        }
+        transform.localScale = characterScale;
     }
 
     private void FixedUpdate()

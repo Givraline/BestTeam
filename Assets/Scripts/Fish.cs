@@ -21,6 +21,7 @@ public class Fish : ScriptableObject
         Legendary
     };
     public FishRarity fishRarity;
+    public Sprite hideFishImage;
     public Sprite fishImage;
 
 
@@ -29,4 +30,7 @@ public class Fish : ScriptableObject
     public float minSliderValue;
     [Range(0f, 1f)]
     public float maxSliderValue;
+    [Range(0f, 2.5f)]
+    public float cursorSpeed;
+
 }
