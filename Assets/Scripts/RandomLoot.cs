@@ -61,10 +61,7 @@ public class RandomLoot : MonoBehaviour
         else
         {
             //Debug.Log("Legendary");
-            if (legendaryFish != null)
-                return legendaryFish[0];
-            else
-                return rareFish[randomRare];
+            return rareFish[randomRare];
         }
 
 
@@ -81,22 +78,22 @@ public class RandomLoot : MonoBehaviour
         if (randomNumber <= 45)
         {
             //Debug.Log("Common");
-            return commonFish[randomCommon];
+            return commonFishSea[randomCommon];
         }
         else if ((randomNumber > 45) && (randomNumber <= 75))
         {
             //Debug.Log("Uncommon");
-            return uncommonFish[randomUncommon];
+            return uncommonFishSea[randomUncommon];
         }
         else if ((randomNumber > 75) && (randomNumber <= 95))
         {
             //Debug.Log("Rare");
-            return rareFish[randomRare];
+            return rareFishSea[randomRare];
         }
         else
         {
             //Debug.Log("Legendary");
-            return legendaryFish[0];
+            return legendaryFishSea[0];
         }
 
     }

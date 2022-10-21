@@ -549,6 +549,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213381247}
   m_CullTransparentMesh: 1
+--- !u!95 &239904680 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1073720784, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+  m_PrefabInstance: {fileID: 1522450693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &257990467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,14 +2857,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 651726384, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 651726386, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: canva
       value: 
       objectReference: {fileID: 2030183832}
     - target: {fileID: 651726386, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 239904680}
+    - target: {fileID: 651726386, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: systemFish
       value: 
       objectReference: {fileID: 1356436199}
+    - target: {fileID: 1073720782, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720783, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8497207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720783, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8497207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720783, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8497207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720783, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720783, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.293915
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073720785, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1495279696, guid: 272c2c6a7e0047942954bbcc8c57ab61, type: 3}
       propertyPath: m_Size.y
       value: 0.66
